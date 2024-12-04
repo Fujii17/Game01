@@ -224,4 +224,4 @@ document.getElementById("startButton").addEventListener("click", startGame);
 document.getElementById("pauseButton").addEventListener("click", pauseGame);
 document.getElementById("resetButton").addEventListener("click", resetGame);
 
-setupRound();  // Inicia o primeiro round
+setupRound();  // Inicia o primeiro roun
