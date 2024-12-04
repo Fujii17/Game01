@@ -7,11 +7,11 @@ const images = {
 };
 
 // Defina as fontes das imagens
-images.player.src = "images/player.png";
-images.insect.src = "images/insect.png";
+images.player.src = "images/player.jpg";
+images.insect.src = "images/insect.jpg";
 images.frog.src = "images/frog.png";
 images.snake.src = "images/snake.png";
-images.eagle.src = "images/eagle.png";
+images.eagle.src = "images/eagle.jpg";
 
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
@@ -76,11 +76,23 @@ function spawnEntity(type) {
 }
 
 // Função para desenhar as entidades no canvas
-function drawEntity(entity, color) {
-  ctx.fillStyle = color;
-  ctx.beginPath();
-  ctx.arc(entity.x, entity.y, entity.size, 0, Math.PI * 2);
-  ctx.fill();
+function drawEntity(entity) {
+  let image;
+  if (entity.type === "insect") image = images.insect;
+  else if (entity.type === "frog") image = images.frog;
+  else if (entity.type === "snake") image = images.snake;
+  else if (entity.type === "eagle") image = images.eagle;
+  else image = images.player; // Default para o jogador
+
+  ctx.drawImage(
+    image,
+    entity.x - entity.size, // Centraliza a imagem
+    entity.y - entity.size,
+    entity.size * 2,        // Largura
+    entity.size * 2         // Altura
+  );
+}
+
 
   // Desenha o nome do animal acima dele
   const animal = animalData[entity.type];
