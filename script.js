@@ -60,14 +60,12 @@ function spawnEntity(type) {
   };
 }
 
+// Função para desenhar as entidades no canvas
 function drawEntity(entity, color) {
   ctx.fillStyle = color;
   ctx.beginPath();
   ctx.arc(entity.x, entity.y, entity.size, 0, Math.PI * 2);
   ctx.fill();
-}
-
-
 
   // Desenha o nome do animal acima dele
   const animal = animalData[entity.type];
