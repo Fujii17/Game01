@@ -218,4 +218,4 @@ function resetGame() {
 }
 
 // Inicializa o jogo com o primeiro round
-setupRound()
+setupRound();
