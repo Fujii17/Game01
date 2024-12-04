@@ -129,7 +129,7 @@ function isColliding(a, b) {
 
 // Loop principal
 function drawGame() {
-    if (!gameRunning) return;
+    if (!gameRunning || gamePaused) return;
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -201,6 +201,12 @@ function startGame() {
 
 function pauseGame() {
     gamePaused = !gamePaused;
+    if (gamePaused) {
+        console.log("Jogo pausado");
+    } else {
+        console.log("Jogo retomado");
+        drawGame();
+    }
 }
 
 function resetGame() {
